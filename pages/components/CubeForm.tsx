@@ -18,7 +18,7 @@ function CubeForm(props: CubeFormProps) {
     props.setCubeString(currentInput)
   }
   const solveCube = () => {
-    fetch(`http://localhost:8080/rubik/solve?cube=${props.cubeString}`)
+    fetch(`https://timsonau.pythonanywhere.com/rubik/solve?cube=${props.cubeString}`)
       .then(response => response.json())
       .then(data => {
 
@@ -46,7 +46,7 @@ function CubeForm(props: CubeFormProps) {
       scrambleRotations += directions.charAt(randInt)
     }
 
-    fetch(`http://localhost:8080/rubik/rotate?cube=${props.cubeString}&dir=${scrambleRotations}`)
+    fetch(`https://timsonau.pythonanywhere.com/rubik/rotate?cube=${props.cubeString}&dir=${scrambleRotations}`)
     .then(response => response.json())
     .then(data => {
 
