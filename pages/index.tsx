@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import CubeApp from './components/CubeApp'
 import Title from './components/Title'
-function index() {
+function Index() {
 
   const [message, setMessage] = useState('Loading')
   
@@ -23,4 +23,4 @@ function index() {
   )
 }
 
-export default index
+export default Index

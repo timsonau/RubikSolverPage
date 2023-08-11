@@ -3,7 +3,7 @@ import React from 'react';
 
 function Title() {
   return (
-    <div className='title'>Rubik's Cube Solver</div>
+    <div className='title'>Rubik&apos;s Cube Solver</div>
   )
 }
 

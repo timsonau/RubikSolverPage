@@ -15,4 +15,5 @@ const CubeSolution = React.memo((props: CubeSolutionProps) => {
   );
 });
 
+CubeSolution.displayName = 'CubeSolution';
 export default CubeSolution;
