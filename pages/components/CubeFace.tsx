@@ -8,6 +8,9 @@ interface CubeFaceProps {
 
 
 function CubeFace(props:CubeFaceProps) {
+  if(!props.colors) {
+    props.colors = 'bbbbbbbbb'
+  }
   return (
     <div className={`cube-face ${props.side}-face`}>
         {Array.from(props.colors).map((char, index) => (

@@ -6,6 +6,9 @@ interface CubeMapProps{
 }
 function CubeMap(props: CubeMapProps) {
   console.log("Cube Map Rendered")
+  if(!props.cubeString) {
+    props.cubeString = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
+  }
   return (
     <div className="cube-mapping">
         <CubeFace side='up' colors={props.cubeString.substring(36,45)} />
