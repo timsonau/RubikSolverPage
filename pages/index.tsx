@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CubeApp from "./components/CubeApp";
 import Title from "./components/Title";
-import { CUBE_API_BASE } from "./util/constants";
+import { CUBE_API_BASE } from "../util/constants";
 function Index() {
   const [message, setMessage] = useState("Loading");
 

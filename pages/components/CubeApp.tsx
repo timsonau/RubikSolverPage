@@ -3,7 +3,7 @@ import CubeForm from "./CubeForm";
 import CubeSolution from "./CubeSolution";
 import React, { useState } from "react";
 
-import { DEFAULT_CUBE } from "../util/constants";
+import { DEFAULT_CUBE } from "../../util/constants";
 
 function CubeApp() {
   /* State Variables */

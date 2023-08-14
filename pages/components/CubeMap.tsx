@@ -1,7 +1,7 @@
 /* Imports */
 import React from "react";
 import CubeFace from "./CubeFace";
-import { DEFAULT_CUBE } from "../util/constants";
+import { DEFAULT_CUBE } from "../../util/constants";
 
 /* Constants */
 

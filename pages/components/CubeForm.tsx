@@ -5,7 +5,7 @@ import {
   SOLVE_SERVER_PATH,
   ROTATE_SERVER_PATH,
   VALID_ROTATIONS,
-} from "../util/constants";
+} from "../../util/constants";
 
 interface CubeFormProps {
   setCubeString: React.Dispatch<React.SetStateAction<string>>;
