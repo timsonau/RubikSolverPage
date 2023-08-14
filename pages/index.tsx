@@ -18,7 +18,7 @@ function Index() {
   return (
     <>
       <Head>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
       </Head>
       <div id="index">
         <Title />
