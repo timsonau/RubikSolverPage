@@ -18,7 +18,7 @@ function Index() {
   return (
     <>
       <Head>
-        <link rel="icon" href="/RubikSolverPage/public/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       </Head>
       <div id="index">
         <Title />
