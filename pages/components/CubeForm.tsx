@@ -72,22 +72,22 @@ function CubeForm(props: CubeFormProps) {
   return (
     <div className="cube-form-wrapper">
       <form className="cube-form">
-        <div className="cube-input">
-          <button className="button" type="button" onClick={scrambleCube}>
-            Scramble
-          </button>
-          <input
-            className="input-box"
-            id="cube-input-box"
-            type="text"
-            placeholder={props.cubeString}
-            onChange={(event) => setCurrentInput(event.target.value)}
-          ></input>
+        <input
+          className="input-box"
+          id="cube-input-box"
+          type="text"
+          placeholder={props.cubeString}
+          onChange={(event) => setCurrentInput(event.target.value)}
+        ></input>
+        <div className="cube-options">
           <button className="button" type="button" onClick={configureCube}>
             Configure
           </button>
           <button className="button" type="button" onClick={solveCube}>
             Solve
+          </button>
+          <button className="button" type="button" onClick={scrambleCube}>
+            Scramble
           </button>
         </div>
       </form>

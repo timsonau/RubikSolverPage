@@ -20,7 +20,7 @@ function getColor(char: string) {
 function CubePixel(props: CubePixelProps) {
   return (
     <div
-      className={`cube-pixel w-14 h-14`}
+      className={`cube-pixel`}
       style={{ backgroundColor: getColor(props.color) }}
     ></div>
   );
