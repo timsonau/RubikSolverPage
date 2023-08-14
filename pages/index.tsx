@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CubeApp from "./components/CubeApp";
 import Title from "./components/Title";
 import { CUBE_API_BASE } from "../util/constants";
+import Head from "next/head";
 function Index() {
   const [message, setMessage] = useState("Loading");
 
@@ -15,10 +16,15 @@ function Index() {
   }, []);
 
   return (
-    <div id="index">
-      <Title />
-      <CubeApp />
-    </div>
+    <>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div id="index">
+        <Title />
+        <CubeApp />
+      </div>
+    </>
   );
 }
 
