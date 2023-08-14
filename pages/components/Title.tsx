@@ -1,10 +1,7 @@
-import React from 'react';
-
+import React from "react";
 
 function Title() {
-  return (
-    <div className='title'>Rubik&apos;s Cube Solver</div>
-  )
+  return <div className="title">Rubik&apos;s Cube Solver</div>;
 }
 
-export default Title
+export default Title;
