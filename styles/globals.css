@@ -27,7 +27,7 @@
 }
 
 .cube-form-wrapper {
-  @apply flex justify-center h-1/6;
+  @apply flex justify-center h-[20%];
 }
 
 .cube-form {
@@ -35,11 +35,11 @@
 }
 
 .cube-solution-wrapper {
-  @apply flex justify-center items-end h-1/6;
+  @apply flex justify-center items-center h-[30%] sm:h-[20%];
 }
 
 .cube-solution {
-  @apply w-full md:w-4/5 p-4 bg-white rounded drop-shadow-xl h-2/3;
+  @apply text-sm sm:text-base w-full p-4 bg-white rounded drop-shadow-xl h-[90%] break-words max-w-7xl;
 }
 
 .cube-face {
@@ -50,13 +50,17 @@
   @apply flex justify-center gap-1.5;
 }
 
-.cube-mapping {
-  @apply max-h-[66%] flex flex-col items-center justify-between space-y-1.5;
+.cube-map-wrapper {
+  @apply h-[50%] sm:h-[60%] flex justify-center items-center;
+}
+
+.cube-map {
+  @apply flex flex-col items-center justify-between space-y-1.5;
 }
 
 .up-face,
 .down-face {
-  @apply mr-[5.25rem] sm:mr-[8.25rem] lg:mr-[11.25rem] self-center;
+  @apply mr-[5.25rem] sm:mr-[8.25rem] self-center;
 }
 
 .cube-app {
@@ -64,5 +68,5 @@
 }
 
 .cube-pixel {
-  @apply w-6 h-6 sm:w-10 sm:h-10 lg:w-14 lg:h-14;
+  @apply w-6 h-6 sm:w-10 sm:h-10;
 }
