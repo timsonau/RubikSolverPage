@@ -1,6 +1,7 @@
 import CubeMap from "./CubeMap";
 import CubeForm from "./CubeForm";
 import CubeSolution from "./CubeSolution";
+import CubeController from "./CubeController";
 import React, { useState } from "react";
 
 import { DEFAULT_CUBE } from "../../util/constants";
@@ -18,7 +19,10 @@ function CubeApp() {
         cubeString={cubeString}
         setSolution={setSolution}
       />
-      <CubeMap cubeString={cubeString} />
+      <div className="cube-controller-map-wrapper">
+        <CubeMap cubeString={cubeString} />
+      </div>
+
       <CubeSolution solution={solution} />
     </div>
   );

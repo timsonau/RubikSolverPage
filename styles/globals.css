@@ -50,10 +50,9 @@
   @apply flex justify-center gap-1.5;
 }
 
-.cube-map-wrapper {
+.cube-controller-map-wrapper {
   @apply h-[50%] sm:h-[60%] flex justify-center items-center;
 }
-
 .cube-map {
   @apply flex flex-col items-center justify-between space-y-1.5;
 }
