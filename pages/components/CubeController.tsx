@@ -7,19 +7,19 @@ import CubeControllerButton from "./CubeControllerButton";
 
 interface CubeControllerProps {}
 
-function CubeController(props: CubeControllerProps) {
+function CubeController() {
   const cwRotations = "FRBLUD";
   const ccwRotations = "frblud";
   return (
     <div className="cube-controller">
       <div className="cw-rotations">
         {Array.from(cwRotations).map((char, index) => (
-          <CubeControllerButton rotation={char} />
+          <CubeControllerButton key={index} rotation={char} />
         ))}
       </div>
       <div className="ccw-rotations">
         {Array.from(ccwRotations).map((char, index) => (
-          <CubeControllerButton rotation={char} />
+          <CubeControllerButton key={index} rotation={char} />
         ))}
       </div>
     </div>
