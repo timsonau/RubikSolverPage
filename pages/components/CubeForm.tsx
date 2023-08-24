@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
+import * as c from "../../util/constants";
 import {
-  DEFAULT_CUBE,
-  CUBE_API_BASE,
-  SOLVE_SERVER_PATH,
-  ROTATE_SERVER_PATH,
-  VALID_ROTATIONS,
-} from "../../util/constants";
-
+  rotate_F,
+  rotate_f,
+  rotate_R,
+  rotate_r,
+  rotate_B,
+  rotate_b,
+  rotate_L,
+  rotate_l,
+  rotate_U,
+  rotate_u,
+} from "@/util/rotations";
 interface CubeFormProps {
   setCubeString: React.Dispatch<React.SetStateAction<string>>;
   cubeString: string;
@@ -15,7 +20,7 @@ interface CubeFormProps {
 
 function CubeForm(props: CubeFormProps) {
   /* State Variables*/
-  const [currentInput, setCurrentInput] = useState(DEFAULT_CUBE);
+  const [currentInput, setCurrentInput] = useState(c.DEFAULT_CUBE);
 
   /* Event Handlers */
   const configureCube = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -24,12 +29,13 @@ function CubeForm(props: CubeFormProps) {
   };
 
   const solveCube = () => {
-    fetch(`${CUBE_API_BASE}${SOLVE_SERVER_PATH}?cube=${props.cubeString}`)
+    fetch(`${c.CUBE_API_BASE}${c.SOLVE_SERVER_PATH}?cube=${props.cubeString}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         if (data.hasOwnProperty("solution")) {
           props.setSolution(data.solution);
+          startSolveCubeAnimation(data.solution);
         } else {
           props.setSolution(data.status);
         }
@@ -39,11 +45,64 @@ function CubeForm(props: CubeFormProps) {
       });
   };
 
+  const startSolveCubeAnimation = async (rotations: string) => {
+    const delay = 100;
+    let curCubeString = props.cubeString;
+
+    for (const rotation of rotations) {
+      let newCubeString = "";
+      switch (rotation) {
+        case "F":
+          newCubeString = rotate_F(curCubeString);
+          break;
+        case "f":
+          newCubeString = rotate_f(curCubeString);
+          break;
+        case "R":
+          newCubeString = rotate_R(curCubeString);
+          break;
+        case "r":
+          newCubeString = rotate_r(curCubeString);
+          break;
+        case "L":
+          newCubeString = rotate_L(curCubeString);
+          break;
+        case "l":
+          newCubeString = rotate_l(curCubeString);
+          break;
+        case "B":
+          newCubeString = rotate_B(curCubeString);
+          break;
+        case "b":
+          newCubeString = rotate_b(curCubeString);
+          break;
+        case "U":
+          newCubeString = rotate_U(curCubeString);
+          break;
+        case "u":
+          newCubeString = rotate_u(curCubeString);
+          break;
+        case "D":
+          break;
+        case "d":
+          break;
+      }
+      curCubeString = newCubeString;
+      // Update the state to trigger a re-render
+      props.setCubeString(newCubeString);
+
+      // Delay before the next rotation
+      await new Promise((resolve) => setTimeout(resolve, delay));
+
+      curCubeString = newCubeString;
+    }
+  };
+
   const scrambleCube = async () => {
     let scrambleRotations = generateRandomRotations();
     try {
       const response = await fetch(
-        `${CUBE_API_BASE}${ROTATE_SERVER_PATH}?cube=${props.cubeString}&dir=${scrambleRotations}`
+        `${c.CUBE_API_BASE}${c.ROTATE_SERVER_PATH}?cube=${props.cubeString}&dir=${scrambleRotations}`
       );
       const data = await response.json();
       console.log(data);
@@ -62,8 +121,8 @@ function CubeForm(props: CubeFormProps) {
     const NUM_ROTATIONS = 30;
     let randRotations = "";
     for (let i = 0; i < NUM_ROTATIONS; i++) {
-      let randInt = Math.floor(Math.random() * VALID_ROTATIONS.length);
-      randRotations += VALID_ROTATIONS.charAt(randInt);
+      let randInt = Math.floor(Math.random() * c.VALID_ROTATIONS.length);
+      randRotations += c.VALID_ROTATIONS.charAt(randInt);
     }
     return randRotations;
   };
