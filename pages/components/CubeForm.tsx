@@ -34,7 +34,6 @@ function CubeForm(props: CubeFormProps) {
       .then((data) => {
         console.log(data);
         if (data.hasOwnProperty("solution")) {
-          props.setSolution(data.solution);
           startSolveCubeAnimation(data.solution);
         } else {
           props.setSolution(data.status);
@@ -48,7 +47,7 @@ function CubeForm(props: CubeFormProps) {
   const startSolveCubeAnimation = async (rotations: string) => {
     const delay = 100;
     let curCubeString = props.cubeString;
-
+    let curRotations = "";
     for (const rotation of rotations) {
       let newCubeString = "";
       switch (rotation) {
@@ -90,7 +89,7 @@ function CubeForm(props: CubeFormProps) {
       curCubeString = newCubeString;
       // Update the state to trigger a re-render
       props.setCubeString(newCubeString);
-
+      props.setSolution((curRotations += rotation));
       // Delay before the next rotation
       await new Promise((resolve) => setTimeout(resolve, delay));
 
