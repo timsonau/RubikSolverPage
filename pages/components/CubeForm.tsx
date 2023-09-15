@@ -21,6 +21,7 @@ interface CubeFormProps {
 function CubeForm(props: CubeFormProps) {
   /* State Variables*/
   const [currentInput, setCurrentInput] = useState(c.DEFAULT_CUBE);
+  const [isSolving, setIsSolving] = useState(false);
 
   /* Event Handlers */
   const configureCube = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -29,6 +30,7 @@ function CubeForm(props: CubeFormProps) {
   };
 
   const solveCube = () => {
+    setIsSolving(true);
     fetch(`${c.CUBE_API_BASE}${c.SOLVE_SERVER_PATH}?cube=${props.cubeString}`)
       .then((response) => response.json())
       .then((data) => {
@@ -95,6 +97,7 @@ function CubeForm(props: CubeFormProps) {
 
       curCubeString = newCubeString;
     }
+    setIsSolving(false);
   };
 
   const scrambleCube = async () => {
@@ -134,17 +137,32 @@ function CubeForm(props: CubeFormProps) {
           className="input-box"
           id="cube-input-box"
           type="text"
-          placeholder={props.cubeString}
+          defaultValue={props.cubeString}
           onChange={(event) => setCurrentInput(event.target.value)}
         ></input>
         <div className="cube-options">
-          <button className="button" type="button" onClick={configureCube}>
+          <button
+            className={`button ${isSolving ? "opacity-25" : ""}`}
+            type="button"
+            onClick={configureCube}
+            disabled={isSolving}
+          >
             Configure
           </button>
-          <button className="button" type="button" onClick={solveCube}>
+          <button
+            className={`button ${isSolving ? "opacity-25" : ""}`}
+            type="button"
+            onClick={solveCube}
+            disabled={isSolving}
+          >
             Solve
           </button>
-          <button className="button" type="button" onClick={scrambleCube}>
+          <button
+            className={`button ${isSolving ? "opacity-25" : ""}`}
+            type="button"
+            onClick={scrambleCube}
+            disabled={isSolving}
+          >
             Scramble
           </button>
         </div>
